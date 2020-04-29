@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Basis design</title>
+    <title>Comp Map</title>
 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,18 @@
 <body>
 
 <div id="map-id" ></div>
-
+<div id="address_container">
+    <form class="form-map" action="index.php" method="POST">
+        <input class="input" type="text" placeholder="Firmanavn" name="firm_name" value=""><br>
+        <input class="input" type="text" placeholder="Adresse" name="address" value=""><br>
+        <div class="inline">
+            <input class="input" type="text" placeholder="Postnummer" name="zipcode" value="">
+            <input class="input" type="text" placeholder="By" name="city" value="">
+        </div><br>
+        <button class="button-submit" type="submit" name="submit">Tilføj</button>
+        <p></p>
+    </form>
+</div>
 
 
 <script 

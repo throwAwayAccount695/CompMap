@@ -3,7 +3,35 @@ html, body {
     margin: 0;
     overflow: hidden;
 }
+.inline{
+    display: inline;
+}
 #map-id {
     height: 100%;
-    width: 100vw;
+    width: 100%;
+}
+
+#address_container{
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: auto;
+    height: auto;
+    background-color: white;
+}
+
+.form-map{
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.button-submit{
+    float: right;
+}
+
+.input{
+    border: 2px solid black;
+    width: 100%;
+    margin-bottom: 8px;
 }
