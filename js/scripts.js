@@ -1,4 +1,4 @@
-var map = L.map('map-id').setView([55.781582, 10.574432], 7);
+var map = L.map('map-id').setView([55.781582, 10.574432], 8);
 var OpenStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -18,3 +18,12 @@ function collect_data(){
     var city = document.getElementById("city").value;
     console.log("firmaet tilhører byen: " + city);
 }
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+        console.log(xhttp.responseText);
+    }
+};
+xhttp.open('GET', "https://nominatim.openstreetmap.org/search?q=%22Ejlskovsgade%203%205000%20denmark%22&format=json", true);
+xhttp.send();
