@@ -15,13 +15,13 @@
 <div id="map-id" ></div>
 <div id="address_container">
     <form class="form-map" action="index.php" method="POST">
-        <input class="input" type="text" placeholder="Firmanavn" name="firm_name" value=""><br>
-        <input class="input" type="text" placeholder="Adresse" name="address" value=""><br>
+        <input class="input" type="text" placeholder="Firmanavn" id="firm_name" value=""><br>
+        <input class="input" type="text" placeholder="Adresse" id="address" value=""><br>
         <div class="inline">
-            <input class="input" type="text" placeholder="Postnummer" name="zipcode" value="">
-            <input class="input" type="text" placeholder="By" name="city" value="">
+            <input class="input" type="text" placeholder="Postnummer" id="zipcode" value="">
+            <input class="input" type="text" placeholder="By" id="city" value="">
         </div><br>
-        <button class="button-submit" type="submit" name="submit">Tilføj</button>
+        <button class="button-submit" onclick="collect_data()" type="button" name="submit">Tilføj</button>
         <p></p>
     </form>
 </div>
