@@ -22,7 +22,9 @@ function collect_data(){
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
+        var obj = JSON.parse(xhttp.responseText);
         console.log(xhttp.responseText);
+        document.getElementById("demo").innerHTML = obj;
     }
 };
 xhttp.open('GET', "https://nominatim.openstreetmap.org/search?q=%22Ejlskovsgade%203%205000%20denmark%22&format=json", true);
