@@ -20,7 +20,7 @@
             <input class="input" type="text" placeholder="Postnummer" id="zipcode" value="">
             <input class="input" type="text" placeholder="By" id="city" value="">
         </div><br>
-        <button class="button-submit" onclick="collect_data()" type="button" name="submit">Tilføj</button>
+        <button class="button-submit" onclick="place_marker(collect_data());" type="button" name="submit">Tilføj</button>
         <p></p>
     </form>
 </div>
