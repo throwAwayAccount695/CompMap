@@ -1,5 +1,4 @@
 //variables
-var cordinates;
 var markers = [];
 
 //map instantiation
@@ -26,15 +25,15 @@ function place_marker(search_string){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
-            cordinates = JSON.parse(xhttp.responseText);
-            success();
+            let obj = JSON.parse(xhttp.responseText);
+            add_marker(obj[0].lat, obj[0].lon);
         }
     };
     xhttp.open('GET', "https://nominatim.openstreetmap.org/search?q=" + search_string + "&format=json", true);
     xhttp.send();
 
-    function success(){
-        markers.push(L.marker([cordinates[0].lat, cordinates[0].lon]).addTo(map));
+    function add_marker(lat, lon){
+        markers.push(L.marker([lat, lon]).addTo(map));
     }
 }
 
