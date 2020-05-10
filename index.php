@@ -34,6 +34,8 @@
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" 
     crossorigin="">
 </script>
-<script src="js/scripts.js"></script>
+<script 
+    src="js/scripts.js">
+</script>
 </body>
 </html>

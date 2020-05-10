@@ -21,6 +21,7 @@ use Exception;
         public function  __construct($db_host, $db_user, $db_pwd, $db_name){
             $conn = new mysqli($db_host, $db_user, $db_pwd, $db_name);
             $this->conn = $conn;
+            mysqli_set_charset($this->conn, 'utf8');
         }
         /**
          * Get a single row from a given table as either an associative array, numbered array or an object.
@@ -108,7 +109,7 @@ use Exception;
             try{
                 if(!empty($result)){
                     $data = array();
-                    while($row = mysqli_fetch_object($result)){
+                    while($row = mysqli_fetch_assoc($result)){
                         $data[] = $row;
                     }
                     return $data;
