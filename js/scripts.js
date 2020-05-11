@@ -4,7 +4,7 @@ var markers = [];
 
 //function calls on start
 get_markers();
-
+update_marker("company_name", 'poop', 2);
 
 
 //map instantiation
@@ -59,4 +59,15 @@ function add_marker(lat, lon){
     markers.push(L.marker([lat, lon]).addTo(map));
 }
 
+//updates a given row in the database
+function update_marker(update_key, update_value, id){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            console.log(xhttp.responseText);
+        }
+    };
+    xhttp.open('GET', "http://localhost/php/hjemme_arbejde/CompMap/classes/Update.php?" + update_key + "=" + update_value + "&id=" + id, true);
+    xhttp.send();
+}
 
