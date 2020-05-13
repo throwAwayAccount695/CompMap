@@ -3,10 +3,11 @@ var markers = [];
 
 
 //function calls on start.
-get_markers();
+window.addEventListener('DOMContentLoaded', (event) => {
+    get_markers();
+});
 //update_marker("company_name", "sample text", 2);
 //delete_row(14);
-
 
 
 //map instantiation
