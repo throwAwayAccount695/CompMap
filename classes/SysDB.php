@@ -215,10 +215,20 @@ use Exception;
          * delete a row of data in the database.
          * 
          * @param string $table_name The table that you want to update data in.
-         * @param string $where an id of some sort that point to the row you want deleted.
+         * @param string $where_column the name of the column that you to check from.
+         * @param string $where_value an id of some sort that point to the row you want deleted.
          */
-        public function delete_row($table_name, $where){
-
+        public function delete_row($table_name, $where_column, $where_value){
+            $type = NULL;
+            if(is_numeric($where_value)){
+                $type = "i"; 
+            } else {
+                $type = "s";
+            }
+            $stmt = $this->conn->prepare("DELETE FROM $table_name WHERE $where_column" . " = ?");
+            $stmt->bind_param($type, $where_value);
+            $stmt->execute();
+            $stmt->close();
         }
 
 
