@@ -4,7 +4,7 @@ var markers = [];
 
 //function calls on start
 get_markers();
-update_marker("company_name", 'poop', 2);
+update_marker("company_name", "sample text", 2);
 
 
 //map instantiation
@@ -23,18 +23,28 @@ function collect_data(){
     var address = document.getElementById("address").value;
     address = address.replace(" ", '+').replace(",", '');
 
-    return address + "+" + zipcode + "+" + city; 
+    var arr = [firm_name, address, city, zipcode];
+    return arr; 
 }
 
 //get json from openStreetMap
-function place_marker(search_string){
+function place_marker(data_arr){
+    var search_string = '';
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
             let obj = JSON.parse(xhttp.responseText);
+            insert_marker(obj[0], data_arr);
             add_marker(obj[0].lat, obj[0].lon);
         }
     };
+    for (let j = 1; j < data_arr.length; j++) {
+        if(j != data_arr.length - 1){
+            search_string += data_arr[j] + "+";
+        } else {
+            search_string += data_arr[j];
+        }
+    } 
     xhttp.open('GET', "https://nominatim.openstreetmap.org/search?q=" + search_string + "&format=json", true);
     xhttp.send();
 }
@@ -62,12 +72,16 @@ function add_marker(lat, lon){
 //updates a given row in the database
 function update_marker(update_key, update_value, id){
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status == 200){
-            console.log(xhttp.responseText);
-        }
-    };
     xhttp.open('GET', "http://localhost/php/hjemme_arbejde/CompMap/classes/Update.php?" + update_key + "=" + update_value + "&id=" + id, true);
     xhttp.send();
 }
 
+//insert a given row in the database
+function insert_marker(obj, data){
+    var xhttp = new XMLHttpRequest();
+    xhttp.open
+        ('GET', 
+        "http://localhost/php/hjemme_arbejde/CompMap/classes/Insert.php?company_name=" 
+        + data[0] + "&address=" + data[1] + "&postnr=" + data[3] + "&lat=" + obj.lat + "&lon=" + obj.lon, true);
+    xhttp.send();
+}

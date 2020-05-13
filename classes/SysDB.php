@@ -153,17 +153,6 @@ use Exception;
                     }
                 }
                 $stmt = $this->conn->prepare("INSERT INTO $table_name ($columns) VALUES ($prepare)");
-               /* if($stmt = $this->conn->prepare("INSERT INTO $table_name ($columns) VALUES ($prepare)") === FALSE){
-                    $bool_arr[$i] = "FAILURE! Row $i didn't go through something is wrong with the data!";
-                    echo '<pre>';
-                    print_r($bool_arr);
-                    echo '</pre>';
-                    return FALSE;
-                } else {
-                    $bool_arr[$i] = "SUCCESS! Row $i went thorugh and got added to the database!";
-                }
-                NOTE :  NEEDS TO FIND A WAY TO RETURN FALSE!
-                */
                 $stmt->bind_param($type, ...$values_arr);
                 $stmt->execute();
                 $stmt->close();
@@ -220,6 +209,16 @@ use Exception;
             $stmt->bind_param($type, ...$values_arr);
             $stmt->execute();
             $stmt->close();
+        }
+
+        /**
+         * delete a row of data in the database.
+         * 
+         * @param string $table_name The table that you want to update data in.
+         * @param string $where an id of some sort that point to the row you want deleted.
+         */
+        public function delete_row($table_name, $where){
+
         }
 
 
