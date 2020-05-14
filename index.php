@@ -12,6 +12,7 @@
 <body>
 
 <div id="map-id" ></div>
+
 <div id="address_container">
     <form class="form-map" action="index.php" method="POST">
         <input class="input" type="text" placeholder="Firmanavn" id="firm_name" value=""><br>
@@ -23,7 +24,14 @@
         <button class="button-submit" onclick="place_marker(collect_data());" type="button" name="submit">Tilføj</button>
         <p></p>
     </form>
+    <div class="info-box">
+        <h3 id="company_display">Firmanav: </h3>
+        <p id="address_display">Adresse: </h3>
+        <p id="city_display">By: </h3>
+        <p id="zipcode_display">Postnummer: </h3>
+    </div>
 </div>
+
 
 <pre>
 <p id="demo"></p>

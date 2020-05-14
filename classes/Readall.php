@@ -5,6 +5,6 @@
 
     header("Content-type: application/json; charset=utf-8");
 
-    $data = $db->get_results("SELECT * FROM company");
+    $data = $db->get_results("SELECT * FROM company, post WHERE company.postnr = post.postnr");
     echo json_encode($data); 
 ?>

@@ -5,6 +5,7 @@ var markers = [];
 //function calls on start.
 window.addEventListener('DOMContentLoaded', (event) => {
     get_markers();
+    console.log(markers);
 });
 //update_marker("company_name", "sample text", 2);
 //delete_row(14);
@@ -38,7 +39,7 @@ function place_marker(data_arr){
         if(this.readyState == 4 && this.status == 200){
             let obj = JSON.parse(xhttp.responseText);
             insert_marker(obj[0], data_arr);
-            add_marker(obj[0].lat, obj[0].lon);
+            location.reload();
         }
     };
     for (let j = 1; j < data_arr.length; j++) {
@@ -59,7 +60,7 @@ function get_markers(){
         if(this.readyState == 4 && this.status == 200){
             let obj = JSON.parse(xhttp.responseText);
             for (let i = 0; i < obj.length; i++) {
-                add_marker(obj[i].lat, obj[i].lon);
+                add_marker(obj[i]);
             }
         }
     };
@@ -68,8 +69,20 @@ function get_markers(){
 }
 
 //adds a marker to the map.
-function add_marker(lat, lon){
-    markers.push(L.marker([lat, lon]).addTo(map));
+function add_marker(obj){
+    var arr = 
+        [L.marker([obj.lat, obj.lon]).addTo(map).on('click', 
+        function(){ 
+            document.getElementById("company_display").innerHTML = "Firmanavn: " + obj.company_name;
+            document.getElementById("address_display").innerHTML ="Adresse: " + obj.address;
+            document.getElementById("city_display").innerHTML = "By: " + obj.distrikt;
+            document.getElementById("zipcode_display").innerHTML = "Postnummer: " + obj.postnr;
+        }), obj];
+    markers.push(arr);
+}
+
+function onClick(e) {
+
 }
 
 //updates a given row in the database.
