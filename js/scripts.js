@@ -64,7 +64,7 @@ function get_markers(){
             }
         }
     };
-    xhttp.open('GET', "http://localhost/php/hjemme_arbejde/CompMap/classes/Readall.php", true);
+    xhttp.open('GET', "http://localhost/CompMap/classes/Readall.php", true);
     xhttp.send();
 }
 
@@ -88,7 +88,7 @@ function onClick(e) {
 //updates a given row in the database.
 function update_marker(update_key, update_value, id){
     var xhttp = new XMLHttpRequest();
-    xhttp.open('GET', "http://localhost/php/hjemme_arbejde/CompMap/classes/Update.php?" + update_key + "=" + update_value + "&id=" + id, true);
+    xhttp.open('GET', "http://localhost/CompMap/classes/Update.php?" + update_key + "=" + update_value + "&id=" + id, true);
     xhttp.send();
 }
 
@@ -97,7 +97,7 @@ function insert_marker(obj, data){
     var xhttp = new XMLHttpRequest();
     xhttp.open
         ('GET', 
-        "http://localhost/php/hjemme_arbejde/CompMap/classes/Insert.php?company_name=" 
+        "http://localhost/CompMap/classes/Insert.php?company_name=" 
         + data[0] + "&address=" + data[1] + "&postnr=" + data[3] + "&lat=" + obj.lat + "&lon=" + obj.lon, true);
     xhttp.send();
 }
@@ -105,6 +105,6 @@ function insert_marker(obj, data){
 //delete a given row in the database.
 function delete_row(id){
     var xhttp = new XMLHttpRequest();
-    xhttp.open('GET', "http://localhost/php/hjemme_arbejde/CompMap/classes/Delete.php?id=" + id, true);
+    xhttp.open('GET', "http://localhost/CompMap/classes/Delete.php?id=" + id, true);
     xhttp.send();
 }
