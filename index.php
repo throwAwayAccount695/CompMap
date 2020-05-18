@@ -26,9 +26,14 @@
     </form>
     <div class="info-box">
         <h3 id="company_display">Firmanav: </h3>
-        <p id="address_display">Adresse: </h3>
-        <p id="city_display">By: </h3>
-        <p id="zipcode_display">Postnummer: </h3>
+        <p id="address_display">Adresse: </p>
+        <p id="city_display">By: </p>
+        <p id="zipcode_display">Postnummer: </p>
+        <p id="marker_id" hidden>0</p>
+        <div class="button-bar-center">
+            <button class="button danger" onclick="delete_row();">Slet</button>
+            <button class="button">ændre</button>
+        </div>
     </div>
 </div>
 

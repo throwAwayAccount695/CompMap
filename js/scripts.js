@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     console.log(markers);
 });
 //update_marker("company_name", "sample text", 2);
-//delete_row(14);
+
 
 
 //map instantiation
@@ -72,7 +72,8 @@ function get_markers(){
 function add_marker(obj){
     var arr = 
         [L.marker([obj.lat, obj.lon]).addTo(map).on('click', 
-        function(){ 
+        function(){
+            document.getElementById("marker_id").innerHTML = obj.id;
             document.getElementById("company_display").innerHTML = "Firmanavn: " + obj.company_name;
             document.getElementById("address_display").innerHTML ="Adresse: " + obj.address;
             document.getElementById("city_display").innerHTML = "By: " + obj.distrikt;
@@ -81,9 +82,6 @@ function add_marker(obj){
     markers.push(arr);
 }
 
-function onClick(e) {
-
-}
 
 //updates a given row in the database.
 function update_marker(update_key, update_value, id){
@@ -103,8 +101,11 @@ function insert_marker(obj, data){
 }
 
 //delete a given row in the database.
-function delete_row(id){
+function delete_row(){
     var xhttp = new XMLHttpRequest();
+    var id = document.getElementById("marker_id").textContent;
     xhttp.open('GET', "http://localhost/CompMap/classes/Delete.php?id=" + id, true);
     xhttp.send();
+    location.reload();
 }
+
