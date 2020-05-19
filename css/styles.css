@@ -7,8 +7,8 @@ html, body {
     display: inline;
 }
 #map-id {
-    height: 50%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
 }
 
 #address_container{
