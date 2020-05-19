@@ -19,6 +19,7 @@ html, body {
     width: auto;
     height: auto;
     background-color: white;
+    width: 250px;
 }
 
 .form-map{
@@ -55,4 +56,8 @@ html, body {
 
 .danger{
     background-color: rgb(219, 22, 22);
-    color: white;}
+    color: white;
+}
+.caution{
+    background-color: rgb(255, 217, 0);
+}

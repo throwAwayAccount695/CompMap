@@ -17,23 +17,36 @@
     <form class="form-map" action="index.php" method="POST">
         <input class="input" type="text" placeholder="Firmanavn" id="firm_name" value=""><br>
         <input class="input" type="text" placeholder="Adresse" id="address" value=""><br>
-        <div class="inline">
-            <input class="input" type="text" placeholder="Postnummer" id="zipcode" value="">
-            <input class="input" type="text" placeholder="By" id="city" value="">
-        </div><br>
+        <input class="input" type="text" placeholder="Postnummer" id="zipcode" value="">
+        <br>
         <button class="button-submit" onclick="place_marker(collect_data());" type="button" name="submit">Tilføj</button>
         <p></p>
     </form>
     <div class="info-box">
-        <h3 id="company_display">Firmanav: </h3>
+        <h3 id="company_display">Firmanavn: </h3>
         <p id="address_display">Adresse: </p>
         <p id="city_display">By: </p>
         <p id="zipcode_display">Postnummer: </p>
         <p id="marker_id" hidden>0</p>
+        <p id="company_hidden" hidden>0</p>
+        <p id="address_hidden" hidden>0</p>
+        <p id="zipcode_hidden" hidden>0</p>
         <div class="button-bar-center">
             <button class="button danger" onclick="delete_row();">Slet</button>
-            <button class="button">ændre</button>
+            <button class="button caution" onclick="open_update();">ændre</button>
         </div>
+    </div>
+    <div id="update_box" hidden>
+        <form class="form-map" action="index.php" method="POST">
+            <input class="input" hidden type="text" placeholder="Firmanavn" id="firm_name_update" value=""><br>
+            <input class="input" hidden type="text" placeholder="Adresse" id="address_update" value=""><br>
+            <div class="inline">
+                <input class="input" hidden type="text" placeholder="Postnummer" id="zipcode_update" value="">
+                <input class="input" type="text" hidden id="marker_id_update" value="">
+            </div><br>
+            <button class="button-submit" onclick="update_marker(collect_data_update());" type="button">Gem ændringere</button>
+            <p></p>
+        </form>
     </div>
 </div>
 

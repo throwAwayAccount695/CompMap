@@ -13,6 +13,5 @@
             $id = array("id" => $value);
         }
     }
-
     $data = $db->update("company", $arr, $id);
 ?>
